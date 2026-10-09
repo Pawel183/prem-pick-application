@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-barlow);
+  --font-heading: var(--font-barlow-condensed);
+  --font-score: var(--font-barlow-condensed);
+  --color-win: var(--win);
+  --color-draw: var(--draw);
+  --color-loss: var(--loss);
+  --color-points: var(--points);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Matchday palette: chalk white, ink navy, turf green, card yellow, red-card red */
+  --chalk: #f3f5f7;
+  --ink: #14213d;
+  --turf: #0e7c47;
+  --card-yellow: #f2c230;
+  --red-card: #d7263d;
+  --slate: #5b6782;
+
+  --background: var(--chalk);
+  --foreground: var(--ink);
+  --card: #ffffff;
+  --card-foreground: var(--ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--ink);
+  --primary: var(--turf);
+  --primary-foreground: #ffffff;
+  --secondary: #e4e9ef;
+  --secondary-foreground: var(--ink);
+  --muted: #e9edf2;
+  --muted-foreground: var(--slate);
+  --accent: #e2f1e9;
+  --accent-foreground: #0a5c35;
+  --destructive: var(--red-card);
+  --border: #d9dfe7;
+  --input: #c9d1dc;
+  --ring: var(--turf);
+  --win: var(--turf);
+  --draw: #8a94a8;
+  --loss: var(--red-card);
+  --points: var(--card-yellow);
+  --chart-1: var(--turf);
+  --chart-2: var(--card-yellow);
+  --chart-3: var(--ink);
+  --chart-4: var(--slate);
+  --chart-5: var(--red-card);
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--turf);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--muted);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--turf);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.01em;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* Mown-pitch stripes: full strength for the gameweek banner, soft for match tiles. */
+.pitch {
+  background-color: #0f7a46;
+  background-image: repeating-linear-gradient(90deg, #12884f 0 56px, #0f7a46 56px 112px);
+}
+.pitch-soft {
+  background-color: #e3f1e9;
+  background-image: repeating-linear-gradient(90deg, #e8f4ed 0 28px, #ddeee4 28px 56px);
+}
